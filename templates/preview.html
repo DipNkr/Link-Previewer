@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Previewer</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/styles.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static',filename='styles/favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% if result %}
+    <section class="preview">
+      <h1 class="preview_heading">LINK PREVIEW</h1>
+      <div class="preview_child">
+        <div class="url_image">
+          <img class="url_img" src="{{result.imgUrl}}" alt="preview-img" />
+        </div>
+        <div class="content">
+          <h2 class="title">{{result.title}}</h2>
+          <p class="description">{{result.des}}</p>
+        </div>
+      </div>
+
+      <form class="form" action="/">
+        <button type="submit" class="btn">New</button>
+      </form>
+    </section>
+    {% endif %}
+  </body>
+</html>
